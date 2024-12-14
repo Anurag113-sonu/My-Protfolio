@@ -50,11 +50,11 @@ const Island = ({ isRotating, setisRotating, setCurrentStage, ...props }) => {
     e.stopPropagation();
     e.preventDefault();
     if (isRotating) {
-      const clientX = e.touches ? e.touches[1] : e.clientX;
+      const clientX = e.touches ? e.touches[0] : e.clientX;
     const delta = (clientX - lastx.current) / viewport.width
-    islandRef.current.rotation.y += delta * 0.9* Math.PI;
+    islandRef.current.rotation.y += delta * 0.01* Math.PI;
     lastx.current = clientX;
-    rotationSpeed.current = delta * 0.9* Math.PI;
+    rotationSpeed.current = delta * 0.01* Math.PI;
     }
   }
   const handelKeyDown = (e) => {
